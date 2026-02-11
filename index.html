@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capacita a Tu Equipo de Ventas en Una Tarde | Mario Forastieri</title>
-    <meta name="description" content="Entrenamiento presencial express de ventas en Tijuana. Sistema de Ventas Lógico-Emocional para equipos de 2-10 personas. Resultados desde el día siguiente.">
+    <meta name="description" content="Entrenamiento presencial express de ventas en Tijuana. Sistema de Ventas Lógico-Emocional para equipos de 2-5 personas. Resultados desde el día siguiente.">
 
     <!-- Open Graph / WhatsApp Preview -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Capacita a Tu Equipo de Ventas en Una Tarde">
-    <meta property="og:description" content="Entrenamiento presencial express en Tijuana para equipos de 2-10 personas. Sistema de Ventas Lógico-Emocional por Mario Forastieri.">
+    <meta property="og:description" content="Entrenamiento presencial express en Tijuana para equipos de 2-5 personas. Sistema de Ventas Lógico-Emocional por Mario Forastieri.">
     <meta property="og:image" content="images/hero-training.jpg">
     <meta property="og:locale" content="es_MX">
 
@@ -1252,7 +1252,7 @@
                 <span class="badge">Programa Express</span>
             </div>
             <h1 class="hero__title">Capacita a Tu Equipo de Ventas en Una Tarde</h1>
-            <p class="hero__subtitle">Entrenamiento presencial en Tijuana para equipos de 2-10 personas</p>
+            <p class="hero__subtitle">Entrenamiento presencial en Tijuana para equipos de 2-5 personas</p>
         </div>
     </section>
 
@@ -1737,15 +1737,20 @@
         // When images are added, this script handles the hero image swap
         // and shows photo-bw elements while hiding placeholders.
         document.addEventListener('DOMContentLoaded', function() {
-            // Hero image: attempt to load desktop image, activate <picture> element if exists
-            var heroImg = new Image();
-            heroImg.onload = function() {
+            // Hero image: activate <picture> element if either image loads
+            function activateHero() {
                 var heroDiv = document.querySelector('.hero__image');
+                if (!heroDiv.classList.contains('hero__image--placeholder')) return;
                 heroDiv.classList.remove('hero__image--placeholder');
                 var placeholder = heroDiv.querySelector('.placeholder-text');
                 if (placeholder) placeholder.style.display = 'none';
-            };
-            heroImg.src = 'images/hero-training.jpg';
+            }
+            var heroDesktop = new Image();
+            heroDesktop.onload = activateHero;
+            heroDesktop.src = 'images/hero-training.jpg';
+            var heroMobile = new Image();
+            heroMobile.onload = activateHero;
+            heroMobile.src = 'images/hero-vertical.jpeg';
 
             // Section photos: show photo-bw, hide placeholder if image loads
             var photoMappings = [
