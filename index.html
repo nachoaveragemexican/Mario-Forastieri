@@ -539,14 +539,14 @@
         .linea-visual__marker {
             flex-shrink: 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             gap: 6px;
         }
 
         .linea-visual__marker svg {
-            width: 32px;
-            height: 40px;
+            width: 44px;
+            height: 54px;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
@@ -564,9 +564,9 @@
             height: 4px;
             background: linear-gradient(to right, var(--accent), #D97706);
             position: relative;
-            margin: 0 4px;
+            margin: 0 -2px;
             align-self: center;
-            margin-bottom: 22px;
+            margin-top: 22px;
         }
 
         .linea-visual__line::after {
@@ -1361,7 +1361,7 @@
                             <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 24 12 24s12-15 12-24c0-6.627-5.373-12-12-12z" fill="#D97706"/>
                             <circle cx="12" cy="12" r="5" fill="white"/>
                         </svg>
-                        <span class="linea-visual__label">Cierre</span>
+                        <span class="linea-visual__label">Venta Cerrada</span>
                     </div>
                 </div>
             </div>
