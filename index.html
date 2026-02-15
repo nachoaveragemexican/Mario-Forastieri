@@ -533,49 +533,53 @@
             display: flex;
             align-items: center;
             gap: 0;
-            margin-top: 8px;
+            margin-top: 12px;
         }
 
-        .linea-visual__point {
+        .linea-visual__marker {
             flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 0.9375rem;
+            gap: 6px;
         }
 
-        .linea-visual__point--a {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--white);
+        .linea-visual__marker svg {
+            width: 32px;
+            height: 40px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
-        .linea-visual__point--b {
-            background: var(--accent);
-            color: var(--white);
+        .linea-visual__label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.7);
+            white-space: nowrap;
         }
 
         .linea-visual__line {
             flex: 1;
-            height: 3px;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.2), var(--accent));
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), #D97706);
             position: relative;
+            margin: 0 4px;
+            align-self: center;
+            margin-bottom: 22px;
         }
 
         .linea-visual__line::after {
             content: '';
             position: absolute;
-            right: -6px;
+            right: -8px;
             top: 50%;
             transform: translateY(-50%);
             width: 0;
             height: 0;
-            border-left: 8px solid var(--accent);
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
+            border-left: 12px solid #D97706;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
         }
 
         /* Pillar grid */
@@ -1342,11 +1346,23 @@
                     <span class="linea-recta__number">01</span>
                     <h3 class="linea-recta__title">La Línea Recta</h3>
                 </div>
-                <p class="linea-recta__desc">Cada conversación de ventas tiene un punto A (apertura) y un punto B (cierre). Tu equipo aprende a mantener la conversación en línea recta hacia el cierre, sin desviarse.</p>
+                <p class="linea-recta__desc">Cada conversación de ventas tiene un punto A (contacto inicial) y un punto B (cierre). Tu equipo aprende a mantener la conversación en línea recta hacia el cierre, sin desviarse.</p>
                 <div class="linea-visual">
-                    <span class="linea-visual__point linea-visual__point--a">A</span>
+                    <div class="linea-visual__marker">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" fill="none">
+                            <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 24 12 24s12-15 12-24c0-6.627-5.373-12-12-12z" fill="#2563EB"/>
+                            <circle cx="12" cy="12" r="5" fill="white"/>
+                        </svg>
+                        <span class="linea-visual__label">Contacto Inicial</span>
+                    </div>
                     <div class="linea-visual__line"></div>
-                    <span class="linea-visual__point linea-visual__point--b">B</span>
+                    <div class="linea-visual__marker">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" fill="none">
+                            <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 24 12 24s12-15 12-24c0-6.627-5.373-12-12-12z" fill="#D97706"/>
+                            <circle cx="12" cy="12" r="5" fill="white"/>
+                        </svg>
+                        <span class="linea-visual__label">Cierre</span>
+                    </div>
                 </div>
             </div>
 
